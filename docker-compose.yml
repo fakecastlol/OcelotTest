@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  apigateway:
+    depends_on: [service1, service2]
+    image: apigateway:latest
+    container_name: apigateway
+    restart: always
+    build:
+      context: ./APIGateway/.
+
+  service1:
+    image: service1:latest
+    container_name: service1
+    restart: always
+    build:
+      context: ./Service1/.
+
+  service2:
+    image: service2:latest
+    container_name: service2
+    restart: always
+    build:
+      context: ./Service2/.
